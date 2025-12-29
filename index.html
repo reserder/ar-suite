@@ -11,7 +11,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
@@ -19,1151 +19,412 @@
             padding: 20px;
             min-height: 100vh;
         }
-
+        
         .container {
             max-width: 1400px;
             margin: 0 auto;
         }
-
+        
         header {
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 30px;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 20px;
+            border-bottom: 2px solid #00d4ff;
         }
-
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #00d4ff, #0099ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        
+        .header-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #00d4ff;
         }
-
-        header p {
-            font-size: 1.1em;
-            color: #aaa;
-        }
-
-        .tabs-nav {
+        
+        .action-buttons {
             display: flex;
             gap: 10px;
-            margin-bottom: 25px;
-            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
-            flex-wrap: wrap;
-            overflow-x: auto;
-            padding-bottom: 10px;
         }
-
-        .tab-btn {
-            background: none;
+        
+        button {
+            padding: 10px 20px;
             border: none;
-            color: #aaa;
-            padding: 10px 18px;
-            cursor: pointer;
+            border-radius: 6px;
+            font-size: 14px;
             font-weight: 600;
-            border-bottom: 3px solid transparent;
+            cursor: pointer;
             transition: all 0.3s ease;
-            white-space: nowrap;
         }
-
+        
+        .btn-primary {
+            background: #00d4ff;
+            color: #000;
+        }
+        
+        .btn-primary:hover {
+            background: #00a8cc;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #1e90ff;
+            color: #fff;
+        }
+        
+        .btn-secondary:hover {
+            background: #1873cc;
+            transform: translateY(-2px);
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 2px solid transparent;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
         .tab-btn.active {
-            color: #00d4ff;
-            border-bottom-color: #00d4ff;
+            background: #00d4ff;
+            color: #000;
+            border-color: #00d4ff;
         }
-
+        
         .tab-btn:hover {
-            color: #00d4ff;
+            background: rgba(0, 212, 255, 0.2);
         }
-
+        
         .tab-content {
             display: none;
         }
-
+        
         .tab-content.active {
             display: block;
         }
-
-        .card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 12px;
-            padding: 25px;
-            backdrop-filter: blur(10px);
-            margin-bottom: 20px;
-        }
-
-        .card h2 {
-            font-size: 1.3em;
-            margin-bottom: 20px;
-            color: #00d4ff;
-        }
-
-        .kpi-grid {
+        
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .kpi-card {
-            background: rgba(0, 212, 255, 0.05);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-        }
-
-        .kpi-label {
-            font-size: 0.85em;
-            color: #aaa;
-            margin-bottom: 8px;
-        }
-
-        .kpi-value {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: #00d4ff;
-            margin-bottom: 5px;
-        }
-
-        .kpi-status {
-            font-size: 0.9em;
-            color: #888;
-        }
-
-        .status-good {
-            color: #00ff64;
-        }
-
-        .status-warn {
-            color: #ffc800;
-        }
-
-        .status-bad {
-            color: #ff5050;
-        }
-
-        .metrics-table {
-            overflow-x: auto;
-            margin-bottom: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.95em;
-        }
-
-        th {
-            background: rgba(0, 212, 255, 0.1);
-            padding: 12px;
-            text-align: left;
-            border-bottom: 2px solid rgba(0, 212, 255, 0.3);
-            font-weight: 600;
-        }
-
-        td {
-            padding: 12px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        tr:hover {
-            background: rgba(0, 212, 255, 0.05);
-        }
-
-        .angle-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             margin-bottom: 20px;
         }
-
-        .angle-card {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 100, 200, 0.05) 100%);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 12px;
+        
+        .card {
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid #00d4ff;
+            border-radius: 8px;
             padding: 20px;
         }
-
-        .angle-title {
-            font-size: 1.2em;
+        
+        .card-title {
+            font-size: 16px;
             font-weight: 700;
             color: #00d4ff;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
-
-        .angle-item {
-            margin: 10px 0;
-            padding: 8px 0;
-            color: #ddd;
-            font-size: 0.95em;
-            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-        }
-
-        .angle-item:last-child {
-            border-bottom: none;
-        }
-
-        .angle-label {
-            color: #aaa;
-            font-weight: 500;
-            margin-bottom: 3px;
-        }
-
-        .angle-value {
-            color: #00ff64;
-            font-weight: 600;
-        }
-
-        .revenue-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .revenue-box {
-            background: rgba(0, 212, 255, 0.05);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 10px;
-            padding: 15px;
-        }
-
-        .revenue-label {
-            font-size: 0.85em;
-            color: #aaa;
-            margin-bottom: 8px;
-        }
-
-        .revenue-amount {
-            font-size: 1.6em;
+        
+        .card-value {
+            font-size: 28px;
             font-weight: 700;
-            color: #00ff64;
             margin-bottom: 5px;
         }
-
-        .roles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
+        
+        .card-label {
+            font-size: 12px;
+            color: #aaa;
         }
-
-        .role-card {
-            background: rgba(0, 212, 255, 0.05);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 10px;
-            padding: 15px;
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
         }
-
-        .role-name {
-            font-size: 1.1em;
-            font-weight: 700;
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: #16213e;
+            border: 2px solid #00d4ff;
+            border-radius: 8px;
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        .modal-close {
+            float: right;
+            font-size: 28px;
+            cursor: pointer;
             color: #00d4ff;
-            margin-bottom: 8px;
         }
-
-        .role-fit {
-            font-size: 1.4em;
-            font-weight: 700;
-            color: #00ff64;
-            margin-bottom: 10px;
-        }
-
-        .role-text {
-            font-size: 0.9em;
-            color: #ddd;
-            line-height: 1.4;
-        }
-
-        .roadmap-timeline {
-            margin-bottom: 20px;
-        }
-
-        .quarter {
-            background: rgba(0, 212, 255, 0.05);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 10px;
-            padding: 15px;
+        
+        .form-group {
             margin-bottom: 15px;
         }
-
-        .quarter-title {
-            font-size: 1.1em;
-            font-weight: 700;
-            color: #00d4ff;
-            margin-bottom: 12px;
-        }
-
-        .milestone {
-            background: rgba(255, 255, 255, 0.02);
-            padding: 10px;
-            border-radius: 6px;
-            margin-bottom: 8px;
-            font-size: 0.9em;
-            border-left: 3px solid #00ff64;
-            padding-left: 12px;
-        }
-
-        .milestone-title {
-            font-weight: 600;
-            color: #00ff64;
-        }
-
-        .milestone-detail {
-            color: #aaa;
-            font-size: 0.85em;
-            margin-top: 3px;
-        }
-
-        .matrix {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .matrix-quad {
-            background: rgba(0, 212, 255, 0.05);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 10px;
-            padding: 15px;
-            min-height: 200px;
-        }
-
-        .quad-title {
-            font-size: 1em;
-            font-weight: 700;
-            color: #00d4ff;
-            margin-bottom: 10px;
-        }
-
-        .quad-item {
-            font-size: 0.9em;
-            margin: 8px 0;
-            padding: 6px 0;
-            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-        }
-
-        .quad-item:last-child {
-            border-bottom: none;
-        }
-
-        .quad-recommendation {
-            margin-top: 10px;
-            padding: 8px;
-            background: rgba(255, 255, 255, 0.02);
-            border-left: 3px solid #ffc800;
-            font-size: 0.85em;
-            font-weight: 600;
-            color: #ffc800;
-        }
-
-        .comparison-table {
-            overflow-x: auto;
-        }
-
-        .form-section {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            margin-bottom: 30px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        @media (max-width: 768px) {
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-        }
-
+        
         label {
             display: block;
-            margin-bottom: 8px;
-            color: #aaa;
-            font-weight: 500;
-            font-size: 0.95em;
-        }
-
-        input,
-        select,
-        textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            color: #fff;
-            font-size: 1em;
-            font-family: inherit;
-        }
-
-        input:focus,
-        select:focus,
-        textarea:focus {
-            outline: none;
-            background: rgba(0, 212, 255, 0.1);
-            border-color: #00d4ff;
-            box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .btn {
-            padding: 12px 25px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1em;
+            margin-bottom: 5px;
             font-weight: 600;
-            transition: all 0.3s ease;
-            background: rgba(0, 212, 255, 0.9);
-            color: #000;
         }
-
-        .btn:hover {
-            background: #00d4ff;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
-        }
-
-        .btn-full {
+        
+        input, textarea, select {
             width: 100%;
-            padding: 15px;
-            font-size: 1.1em;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #00d4ff;
+            border-radius: 6px;
+            color: #fff;
         }
-
-        @media (max-width: 1200px) {
-            .kpi-grid,
-            .angle-cards,
-            .revenue-grid,
-            .roles-grid,
-            .matrix {
-                grid-template-columns: 1fr;
-            }
-
-            .tabs-nav {
-                gap: 5px;
-            }
-
-            .tab-btn {
-                padding: 8px 12px;
-                font-size: 0.9em;
-            }
+        
+        input::placeholder {
+            color: #666;
         }
-
-        .notion-note {
-            background: rgba(100, 150, 255, 0.1);
-            border-left: 4px solid rgba(100, 150, 255, 0.5);
-            padding: 15px;
-            border-radius: 5px;
-            margin: 15px 0;
-            font-size: 0.9em;
-            color: #aaa;
+        
+        .chart-container {
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid #00d4ff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🎵 A&R SCOUTING SUITE</h1>
-            <p>Enterprise Artist Evaluation Platform</p>
+            <div class="header-title">🎵 A&R SCOUTING SUITE - Enterprise Edition</div>
+            <div class="action-buttons">
+                <button class="btn-primary" onclick="openAddArtistModal()">➕ Add Artist</button>
+                <button class="btn-secondary" onclick="openImportModal()">📥 Import Data</button>
+            </div>
         </header>
-
-        <div class="tabs-nav">
+        
+        <div class="tabs">
             <button class="tab-btn active" onclick="switchTab('overview')">📊 Overview</button>
             <button class="tab-btn" onclick="switchTab('metrics')">📈 Metrics</button>
-            <button class="tab-btn" onclick="switchTab('selling')">🎯 Selling Angles</button>
+            <button class="tab-btn" onclick="switchTab('angles')">🎯 Selling Angles</button>
             <button class="tab-btn" onclick="switchTab('revenue')">💰 Revenue</button>
-            <button class="tab-btn" onclick="switchTab('roles')">🎤 Roles</button>
-            <button class="tab-btn" onclick="switchTab('roadmap')">📋 Roadmap</button>
+            <button class="tab-btn" onclick="switchTab('roles')">👥 Roles</button>
+            <button class="tab-btn" onclick="switchTab('roadmap')">🗺️ Roadmap</button>
             <button class="tab-btn" onclick="switchTab('risk')">⚠️ Risk Matrix</button>
-            <button class="tab-btn" onclick="switchTab('compare')">🏆 Compare</button>
+            <button class="tab-btn" onclick="switchTab('compare')">📊 Compare</button>
         </div>
-
-        <!-- OVERVIEW TAB -->
+        
+        <!-- Overview Tab -->
         <div id="overview" class="tab-content active">
-            <div class="card">
-                <h2>Key Performance Indicators</h2>
-                <div class="kpi-grid">
-                    <div class="kpi-card">
-                        <div class="kpi-label">Overall Score</div>
-                        <div class="kpi-value">8.2</div>
-                        <div class="kpi-status status-good">✓ Above Benchmark (7.0)</div>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="kpi-label">Monthly Listeners</div>
-                        <div class="kpi-value">45K</div>
-                        <div class="kpi-status status-warn">⚠ Near Target (50K)</div>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="kpi-label">Growth Rate</div>
-                        <div class="kpi-value">+22%</div>
-                        <div class="kpi-status status-good">✓ Above Standard (20%)</div>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="kpi-label">Engagement Rate</div>
-                        <div class="kpi-value">8%</div>
-                        <div class="kpi-status status-good">✓ Excellent (5%)</div>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="kpi-label">Creative Quality</div>
-                        <div class="kpi-value">4.3/5</div>
-                        <div class="kpi-status status-good">✓ Strong</div>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="kpi-label">Team Quality</div>
-                        <div class="kpi-value">4/5</div>
-                        <div class="kpi-status status-good">✓ Professional</div>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="kpi-label">Sync Potential</div>
-                        <div class="kpi-value">4/5</div>
-                        <div class="kpi-status status-good">✓ High</div>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="kpi-label">Live Potential</div>
-                        <div class="kpi-value">4/5</div>
-                        <div class="kpi-status status-good">✓ Tour Ready</div>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="kpi-label">Market Position</div>
-                        <div class="kpi-value">Indie Star</div>
-                        <div class="kpi-status status-good">✓ Top 15%</div>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="kpi-label">Investment Priority</div>
-                        <div class="kpi-value">HIGH</div>
-                        <div class="kpi-status status-good">✓ Recommend</div>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="kpi-label">Year 1 ROI</div>
-                        <div class="kpi-value">₹125L</div>
-                        <div class="kpi-status status-good">✓ Strong</div>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="kpi-label">Risk Level</div>
-                        <div class="kpi-value">LOW</div>
-                        <div class="kpi-status status-good">✓ Safe Bet</div>
-                    </div>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title">Overall Score</div>
+                    <div class="card-value">8.2</div>
+                    <div class="card-label">✓ Above Benchmark (7.0)</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Monthly Listeners</div>
+                    <div class="card-value">45K</div>
+                    <div class="card-label">⚠️ Near Target (50K)</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Growth Rate</div>
+                    <div class="card-value">+22%</div>
+                    <div class="card-label">YoY Performance</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Artist Count</div>
+                    <div class="card-value">12</div>
+                    <div class="card-label">Portfolio Artists</div>
                 </div>
             </div>
+            <div class="chart-container">
+                anvas id="performanceChart"></canvas>
+            </div>
         </div>
-
-        <!-- METRICS TAB -->
+        
+        <!-- Metrics Tab -->
         <div id="metrics" class="tab-content">
-            <div class="card">
-                <h2>Detailed Metrics Analysis</h2>
-                <div class="metrics-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Category</th>
-                                <th>Metric</th>
-                                <th>Value</th>
-                                <th>Benchmark</th>
-                                <th>Status</th>
-                                <th>Notes</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="6" style="background: rgba(0, 212, 255, 0.05); font-weight: 700;">TECHNICAL METRICS</td>
-                            </tr>
-                            <tr>
-                                <td>Technical</td>
-                                <td>Monthly Listeners</td>
-                                <td>45,000</td>
-                                <td>50,000</td>
-                                <td><span style="color: #ffc800;">⚠</span></td>
-                                <td>10% below major label threshold. India adjusted: 30K+ = prospect.</td>
-                            </tr>
-                            <tr>
-                                <td>Technical</td>
-                                <td>30-Day Growth %</td>
-                                <td>22%</td>
-                                <td>20%</td>
-                                <td><span style="color: #00ff64;">✓</span></td>
-                                <td>Exceeds standard. Positive momentum.</td>
-                            </tr>
-                            <tr>
-                                <td>Technical</td>
-                                <td>Engagement Rate</td>
-                                <td>8%</td>
-                                <td>5%</td>
-                                <td><span style="color: #00ff64;">✓</span></td>
-                                <td>Top 10% engagement. Loyal fanbase.</td>
-                            </tr>
-                            <tr>
-                                <td>Technical</td>
-                                <td>Viral Coefficient</td>
-                                <td>1.4</td>
-                                <td>1.2</td>
-                                <td><span style="color: #00ff64;">✓</span></td>
-                                <td>Each fan brings 1.4 new fans. Organic growth strong.</td>
-                            </tr>
-                            <tr>
-                                <td colspan="6" style="background: rgba(0, 212, 255, 0.05); font-weight: 700;">CREATIVE METRICS</td>
-                            </tr>
-                            <tr>
-                                <td>Creative</td>
-                                <td>Voice Uniqueness</td>
-                                <td>4.5/5</td>
-                                <td>4.0/5</td>
-                                <td><span style="color: #00ff64;">✓</span></td>
-                                <td>Highly distinctive timbre. Market differentiator.</td>
-                            </tr>
-                            <tr>
-                                <td>Creative</td>
-                                <td>Hook Quality (Songwriting)</td>
-                                <td>5/5</td>
-                                <td>4.0/5</td>
-                                <td><span style="color: #00ff64;">✓</span></td>
-                                <td>Exceptional hooks. 3+ replays per track average.</td>
-                            </tr>
-                            <tr>
-                                <td>Creative</td>
-                                <td>Production Quality</td>
-                                <td>3.5/5</td>
-                                <td>3.5/5</td>
-                                <td><span style="color: #00ff64;">✓</span></td>
-                                <td>Professional mixing. Needs minor polish for majors.</td>
-                            </tr>
-                            <tr>
-                                <td>Creative</td>
-                                <td>Live Performance</td>
-                                <td>4/5</td>
-                                <td>3.5/5</td>
-                                <td><span style="color: #00ff64;">✓</span></td>
-                                <td>Strong stage presence. Audience engagement proven.</td>
-                            </tr>
-                            <tr>
-                                <td colspan="6" style="background: rgba(0, 212, 255, 0.05); font-weight: 700;">COMMERCIAL METRICS</td>
-                            </tr>
-                            <tr>
-                                <td>Commercial</td>
-                                <td>Manager/Team Quality</td>
-                                <td>4/5</td>
-                                <td>3.5/5</td>
-                                <td><span style="color: #00ff64;">✓</span></td>
-                                <td>Organized, responsive team. Professional contracts.</td>
-                            </tr>
-                            <tr>
-                                <td>Commercial</td>
-                                <td>Sync/Licensing Potential</td>
-                                <td>4/5</td>
-                                <td>3/5</td>
-                                <td><span style="color: #00ff64;">✓</span></td>
-                                <td>High suitability for Bollywood, ads, games.</td>
-                            </tr>
-                            <tr>
-                                <td>Commercial</td>
-                                <td>Touring/Live Readiness</td>
-                                <td>4/5</td>
-                                <td>3/5</td>
-                                <td><span style="color: #00ff64;">✓</span></td>
-                                <td>5+ paid gigs proven. Can headline 200+ cap venues.</td>
-                            </tr>
-                            <tr>
-                                <td>Commercial</td>
-                                <td>Brand/Image Value</td>
-                                <td>4.5/5</td>
-                                <td>3.5/5</td>
-                                <td><span style="color: #00ff64;">✓</span></td>
-                                <td>Authentic brand. Strong IG presence. Adaptable image.</td>
-                            </tr>
-                            <tr>
-                                <td colspan="6" style="background: rgba(0, 212, 255, 0.05); font-weight: 700;">MARKET METRICS</td>
-                            </tr>
-                            <tr>
-                                <td>Market</td>
-                                <td>Competitive Position</td>
-                                <td>Emerging Star</td>
-                                <td>Standard</td>
-                                <td><span style="color: #00ff64;">✓</span></td>
-                                <td>Top 15% indie-electronic artists in India.</td>
-                            </tr>
-                            <tr>
-                                <td>Market</td>
-                                <td>Genre Saturation</td>
-                                <td>Medium</td>
-                                <td>Medium</td>
-                                <td><span style="color: #00ff64;">✓</span></td>
-                                <td>Growing segment. Not oversaturated.</td>
-                            </tr>
-                            <tr>
-                                <td>Market</td>
-                                <td>Target Audience Size</td>
-                                <td>5.2M</td>
-                                <td>3M+</td>
-                                <td><span style="color: #00ff64;">✓</span></td>
-                                <td>Young urban Indians (18-30) into indie-electronic.</td>
-                            </tr>
-                            <tr>
-                                <td>Market</td>
-                                <td>Geographic Strength</td>
-                                <td>3 metros</td>
-                                <td>Metro-focused</td>
-                                <td><span style="color: #00ff64;">✓</span></td>
-                                <td>Strong: Bengaluru, Mumbai, Delhi. Expanding.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title">Engagement Rate</div>
+                    <div class="card-value">6.8%</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Streaming Rank</div>
+                    <div class="card-value">#2847</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Playlist Adds</div>
+                    <div class="card-value">1,240</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Social Following</div>
+                    <div class="card-value">18.5K</div>
                 </div>
             </div>
         </div>
-
-        <!-- SELLING ANGLES TAB -->
-        <div id="selling" class="tab-content">
-            <div class="card">
-                <h2>4 Selling Angles - Label-Ready Pitches</h2>
-                <div class="angle-cards">
-                    <div class="angle-card">
-                        <div class="angle-title">🎤 LEAD ARTIST</div>
-                        <div class="angle-item">
-                            <div class="angle-label">Pitch:</div>
-                            <div class="angle-value">"Next Viral Indie-Electronic Sensation"</div>
-                        </div>
-                        <div class="angle-item">
-                            <div class="angle-label">Target Market:</div>
-                            <div>Gen Z, indie listeners, streaming natives</div>
-                        </div>
-                        <div class="angle-item">
-                            <div class="angle-label">Revenue Potential:</div>
-                            <div class="angle-value">₹125L+ (Year 1)</div>
-                        </div>
-                        <div class="angle-item">
-                            <div class="angle-label">Key Actions:</div>
-                            <div>• Book 30+ touring shows<br>• Pitch to 50+ major playlists<br>• Secure 1+ sync deal</div>
-                        </div>
-                    </div>
-
-                    <div class="angle-card">
-                        <div class="angle-title">🎛️ PRODUCER</div>
-                        <div class="angle-item">
-                            <div class="angle-label">Pitch:</div>
-                            <div class="angle-value">"Genre-Innovative Electronic Producer"</div>
-                        </div>
-                        <div class="angle-item">
-                            <div class="angle-label">Capacity:</div>
-                            <div>Produce 4-5 tracks/month for roster artists</div>
-                        </div>
-                        <div class="angle-item">
-                            <div class="angle-label">Revenue Potential:</div>
-                            <div class="angle-value">₹30-40L (Year 1)</div>
-                        </div>
-                        <div class="angle-item">
-                            <div class="angle-label">Key Actions:</div>
-                            <div>• Co-produce for 3-5 label artists<br>• License beats to platforms<br>• Develop signature sound</div>
-                        </div>
-                    </div>
-
-                    <div class="angle-card">
-                        <div class="angle-title">✍️ SONGWRITER</div>
-                        <div class="angle-item">
-                            <div class="angle-label">Pitch:</div>
-                            <div class="angle-value">"Hit-Writing Songwriter with Proven Hooks"</div>
-                        </div>
-                        <div class="angle-item">
-                            <div class="angle-label">Value:</div>
-                            <div>15-20% songwriting splits on all cuts</div>
-                        </div>
-                        <div class="angle-item">
-                            <div class="angle-label">Revenue Potential:</div>
-                            <div class="angle-value">₹20-30L (Year 1)</div>
-                        </div>
-                        <div class="angle-item">
-                            <div class="angle-label">Key Actions:</div>
-                            <div>• Submit songwriting catalogue<br>• Write for 8-10 label artists<br>• Develop songwriting credits</div>
-                        </div>
-                    </div>
-
-                    <div class="angle-card">
-                        <div class="angle-title">🎸 LIVE/TOURING</div>
-                        <div class="angle-item">
-                            <div class="angle-label">Pitch:</div>
-                            <div class="angle-value">"Festival-Ready Performer"</div>
-                        </div>
-                        <div class="angle-item">
-                            <div class="angle-label">Touring Model:</div>
-                            <div>50+ shows/year @ ₹1L+ average</div>
-                        </div>
-                        <div class="angle-item">
-                            <div class="angle-label">Revenue Potential:</div>
-                            <div class="angle-value">₹50L+ (Year 1)</div>
-                        </div>
-                        <div class="angle-item">
-                            <div class="angle-label">Key Actions:</div>
-                            <div>• Headline 200-500 cap venues<br>• Book major festivals Q1 2025<br>• Corporate event bookings</div>
-                        </div>
-                    </div>
+        
+        <!-- Selling Angles Tab -->
+        <div id="angles" class="tab-content">
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title">Genre Appeal</div>
+                    <div class="card-value">Indie Electronic</div>
+                    <div class="card-label">Primary Category</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Target Audience</div>
+                    <div class="card-value">18-28 y/o</div>
+                    <div class="card-label">Demographics</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Unique Angle</div>
+                    <div class="card-value">Emerging Talent</div>
+                    <div class="card-label">Market Position</div>
                 </div>
             </div>
         </div>
-
-        <!-- REVENUE TAB -->
+        
+        <!-- Revenue Tab -->
         <div id="revenue" class="tab-content">
-            <div class="card">
-                <h2>3-Year Revenue Projections (India-Adjusted)</h2>
-                <p style="color: #aaa; margin-bottom: 15px;">Using India streaming rate: ₹0.75/stream (vs global ₹2-3)</p>
-                
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px;">
-                    <div>
-                        <h3 style="color: #00d4ff; margin-bottom: 15px;">Year 1 (2025)</h3>
-                        <div class="revenue-grid">
-                            <div class="revenue-box">
-                                <div class="revenue-label">Streaming</div>
-                                <div class="revenue-amount">₹45L</div>
-                                <div style="font-size: 0.85em; color: #aaa;">Spotify 40%, YouTube 35%, Apple 15%, Others 10%</div>
-                            </div>
-                            <div class="revenue-box">
-                                <div class="revenue-label">Sync/Licensing</div>
-                                <div class="revenue-amount">₹30L</div>
-                                <div style="font-size: 0.85em; color: #aaa;">Film 50%, Ads 35%, Games 15%</div>
-                            </div>
-                            <div class="revenue-box">
-                                <div class="revenue-label">Live/Touring</div>
-                                <div class="revenue-amount">₹35L</div>
-                                <div style="font-size: 0.85em; color: #aaa;">Touring 60%, Festivals 30%, Corporate 10%</div>
-                            </div>
-                            <div class="revenue-box">
-                                <div class="revenue-label">Merchandise</div>
-                                <div class="revenue-amount">₹15L</div>
-                                <div style="font-size: 0.85em; color: #aaa;">Digital 40%, Physical 60%</div>
-                            </div>
-                        </div>
-                        <div style="background: rgba(0, 255, 100, 0.1); border: 1px solid rgba(0, 255, 100, 0.3); border-radius: 8px; padding: 15px; margin-top: 15px; text-align: center;">
-                            <div style="font-size: 0.95em; color: #aaa;">TOTAL YEAR 1</div>
-                            <div style="font-size: 2em; font-weight: 700; color: #00ff64;">₹125L</div>
-                            <div style="font-size: 0.9em; color: #aaa;">Conservative: ₹95L | Aggressive: ₹150L</div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 style="color: #00d4ff; margin-bottom: 15px;">Year 2 (2026)</h3>
-                        <div style="background: rgba(0, 212, 255, 0.05); border: 1px solid rgba(0, 212, 255, 0.2); border-radius: 10px; padding: 20px; text-align: center;">
-                            <div style="font-size: 0.95em; color: #aaa; margin-bottom: 10px;">Projected Total</div>
-                            <div style="font-size: 2.2em; font-weight: 700; color: #00d4ff;">₹220L</div>
-                            <div style="font-size: 0.9em; color: #00ff64; margin-top: 10px;">+76% Growth</div>
-                            <div style="font-size: 0.85em; color: #aaa; margin-top: 15px;">Conservative: ₹180L<br>Aggressive: ₹280L</div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 style="color: #00d4ff; margin-bottom: 15px;">Year 3 (2027)</h3>
-                        <div style="background: rgba(0, 212, 255, 0.05); border: 1px solid rgba(0, 212, 255, 0.2); border-radius: 10px; padding: 20px; text-align: center;">
-                            <div style="font-size: 0.95em; color: #aaa; margin-bottom: 10px;">Projected Total</div>
-                            <div style="font-size: 2.2em; font-weight: 700; color: #00d4ff;">₹420L</div>
-                            <div style="font-size: 0.9em; color: #00ff64; margin-top: 10px;">+91% Growth</div>
-                            <div style="font-size: 0.85em; color: #aaa; margin-top: 15px;">Conservative: ₹320L<br>Aggressive: ₹550L</div>
-                        </div>
-                    </div>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title">Monthly Revenue</div>
+                    <div class="card-value">$4,200</div>
                 </div>
-
-                <div class="notion-note">
-                    <strong>India Market Note:</strong> Streaming payouts in India are 40-60% lower than global rates. These projections use ₹0.75/stream. As artist grows, rates normalize with international deals.
+                <div class="card">
+                    <div class="card-title">3-Year Projection</div>
+                    <div class="card-value">$180K</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Revenue Sources</div>
+                    <div class="card-value">4</div>
                 </div>
             </div>
         </div>
-
-        <!-- ROLES TAB -->
+        
+        <!-- Roles Tab -->
         <div id="roles" class="tab-content">
-            <div class="card">
-                <h2>6 Monetization Roles - Fit Analysis</h2>
-                <div class="roles-grid">
-                    <div class="role-card">
-                        <div class="role-name">🎤 Lead Vocalist</div>
-                        <div class="role-fit">95%</div>
-                        <div class="role-text">
-                            <strong>Why:</strong> Exceptional voice, market-ready, distinct timbre<br>
-                            <strong>Revenue:</strong> ₹80L+ Year 1<br>
-                            <strong>Action:</strong> Push as primary artist, marketing investment, booking touring
-                        </div>
-                    </div>
-                    <div class="role-card">
-                        <div class="role-name">🎛️ Producer/Composer</div>
-                        <div class="role-fit">70%</div>
-                        <div class="role-text">
-                            <strong>Why:</strong> Strong production, proven track record<br>
-                            <strong>Revenue:</strong> ₹30-40L Year 1<br>
-                            <strong>Action:</strong> Co-produce for 3-5 roster artists at ₹75K/track
-                        </div>
-                    </div>
-                    <div class="role-card">
-                        <div class="role-name">✍️ Songwriter</div>
-                        <div class="role-fit">80%</div>
-                        <div class="role-text">
-                            <strong>Why:</strong> Great hooks, solid lyrics, hit structure<br>
-                            <strong>Revenue:</strong> ₹20-30L Year 1<br>
-                            <strong>Action:</strong> 15% splits on 8-10 placements with other artists
-                        </div>
-                    </div>
-                    <div class="role-card">
-                        <div class="role-name">🎵 Feature Artist</div>
-                        <div class="role-fit">85%</div>
-                        <div class="role-text">
-                            <strong>Why:</strong> Distinct voice perfect for collabs<br>
-                            <strong>Revenue:</strong> ₹15-25L Year 1<br>
-                            <strong>Action:</strong> 8-12 feature placements/year with similar-tier artists
-                        </div>
-                    </div>
-                    <div class="role-card">
-                        <div class="role-name">🔄 Remix Artist</div>
-                        <div class="role-fit">65%</div>
-                        <div class="role-text">
-                            <strong>Why:</strong> Production skills, remix licensing<br>
-                            <strong>Revenue:</strong> ₹8-15L Year 1<br>
-                            <strong>Action:</strong> Official remixes, build remix portfolio, license deals
-                        </div>
-                    </div>
-                    <div class="role-card">
-                        <div class="role-name">🎼 Session/Backing Vocal</div>
-                        <div class="role-fit">60%</div>
-                        <div class="role-text">
-                            <strong>Why:</strong> Session-ready vocal quality<br>
-                            <strong>Revenue:</strong> ₹5-10L Year 1<br>
-                            <strong>Action:</strong> Studio session work, backing vocal contracts, B-sides
-                        </div>
-                    </div>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title">Manager</div>
+                    <div class="card-value">Sarah Johnson</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Producer</div>
+                    <div class="card-value">Alex Chen</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Promoter</div>
+                    <div class="card-value">Marketing Pro</div>
                 </div>
             </div>
         </div>
-
-        <!-- ROADMAP TAB -->
+        
+        <!-- Roadmap Tab -->
         <div id="roadmap" class="tab-content">
-            <div class="card">
-                <h2>12-Month Development Roadmap</h2>
-                <div class="roadmap-timeline">
-                    <div class="quarter">
-                        <div class="quarter-title">Q1 2025 - Foundation & Momentum</div>
-                        <div class="milestone">
-                            <div class="milestone-title">Release Polish EP (4 tracks)</div>
-                            <div class="milestone-detail">Target: Jan 31 | Goal: All tracks >100K streams | Budget: ₹5L | Owner: Label + Artist</div>
-                        </div>
-                        <div class="milestone">
-                            <div class="milestone-title">Reach 250K monthly listeners</div>
-                            <div class="milestone-detail">Target: Mar 31 | Growth: +111% from 45K | Resource: Playlist pitching | Owner: Label A&R</div>
-                        </div>
-                        <div class="milestone">
-                            <div class="milestone-title">Secure 3 Major Playlists</div>
-                            <div class="milestone-detail">Target: Feb 28 | Playlists: RapCaviar, Pop Rising, Indie India | Owner: Label Pitching</div>
-                        </div>
-                    </div>
-
-                    <div class="quarter">
-                        <div class="quarter-title">Q2 2025 - Growth & Visibility</div>
-                        <div class="milestone">
-                            <div class="milestone-title">Feature Collaboration</div>
-                            <div class="milestone-detail">Target: Apr 30 | Partner: Artist 50K+ listeners | Owner: Label A&R</div>
-                        </div>
-                        <div class="milestone">
-                            <div class="milestone-title">Hit 500K monthly listeners</div>
-                            <div class="milestone-detail">Target: Jun 30 | Growth: +111% in 6 months | Strategy: Viral marketing | Owner: Label Marketing</div>
-                        </div>
-                        <div class="milestone">
-                            <div class="milestone-title">TikTok Viral Moment</div>
-                            <div class="milestone-detail">Target: May 31 | Goal: 1 video 10M+ views | Resource: Social media team | Owner: Label</div>
-                        </div>
-                    </div>
-
-                    <div class="quarter">
-                        <div class="quarter-title">Q3 2025 - Commercialization</div>
-                        <div class="milestone">
-                            <div class="milestone-title">Land Sync Deal</div>
-                            <div class="milestone-detail">Target: Jul 31 | Fee: ₹15-25L (Film/Brand) | Owner: Label Sync</div>
-                        </div>
-                        <div class="milestone">
-                            <div class="milestone-title">Begin Touring</div>
-                            <div class="milestone-detail">Target: Aug 1 | Shows: 5 sold-out events | Booking: Professional agent | Owner: Booking Agent</div>
-                        </div>
-                        <div class="milestone">
-                            <div class="milestone-title">Reach 750K listeners</div>
-                            <div class="milestone-detail">Target: Aug 31 | Growth: +50% from Q2 | Strategy: Playlist momentum | Owner: Label</div>
-                        </div>
-                    </div>
-
-                    <div class="quarter">
-                        <div class="quarter-title">Q4 2025 - Milestone & Expansion</div>
-                        <div class="milestone">
-                            <div class="milestone-title">Release Label Debut Album</div>
-                            <div class="milestone-detail">Target: Oct 31 | Tracks: 10-12 | Production: ₹20L | Owner: Label + Artist</div>
-                        </div>
-                        <div class="milestone">
-                            <div class="milestone-title">Hit 1M monthly listeners</div>
-                            <div class="milestone-detail">Target: Dec 31 | Growth: +33% from Q3 | Strategy: Year-end campaigns | Owner: Label</div>
-                        </div>
-                        <div class="milestone">
-                            <div class="milestone-title">International Presence</div>
-                            <div class="milestone-detail">Target: Dec 31 | Charts: Top positions in 3 countries | Owner: Label Global</div>
-                        </div>
-                    </div>
-                </div>
+            <div class="chart-container">
+                anvas id="roadmapChart"></canvas>
             </div>
         </div>
-
-        <!-- RISK TAB -->
+        
+        <!-- Risk Matrix Tab -->
         <div id="risk" class="tab-content">
-            <div class="card">
-                <h2>Risk & Opportunity Matrix</h2>
-                <div class="matrix">
-                    <div class="matrix-quad">
-                        <div class="quad-title">HIGH OPP / LOW RISK</div>
-                        <div class="quad-item">• Feature collaborations</div>
-                        <div class="quad-item">• Touring/Live performances</div>
-                        <div class="quad-item">• Sync pitching</div>
-                        <div class="quad-item">• Playlist placements</div>
-                        <div class="quad-recommendation">PURSUE AGGRESSIVELY ✓</div>
-                    </div>
-
-                    <div class="matrix-quad">
-                        <div class="quad-title">HIGH OPP / HIGH RISK</div>
-                        <div class="quad-item">• Major label bidding</div>
-                        <div class="quad-item">• International expansion</div>
-                        <div class="quad-item">• Artist development rebrand</div>
-                        <div class="quad-recommendation">NEGOTIATE CAREFULLY ⚖️</div>
-                    </div>
-
-                    <div class="matrix-quad">
-                        <div class="quad-title">LOW OPP / LOW RISK</div>
-                        <div class="quad-item">• Social media optimization</div>
-                        <div class="quad-item">• Behind-scenes content</div>
-                        <div class="quad-item">• Community engagement</div>
-                        <div class="quad-recommendation">MAINTAIN CONSISTENCY 📱</div>
-                    </div>
-
-                    <div class="matrix-quad">
-                        <div class="quad-title">LOW OPP / HIGH RISK</div>
-                        <div class="quad-item">• Genre pivot</div>
-                        <div class="quad-item">• Unnecessary team changes</div>
-                        <div class="quad-item">• Experimental projects</div>
-                        <div class="quad-recommendation">AVOID ✗</div>
-                    </div>
-                </div>
+            <div class="chart-container">
+                anvas id="riskChart"></canvas>
             </div>
         </div>
-
-        <!-- COMPARE TAB -->
+        
+        <!-- Compare Tab -->
         <div id="compare" class="tab-content">
-            <div class="card">
-                <h2>Competitive Analysis</h2>
-                <div class="comparison-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Metric</th>
-                                <th style="background: rgba(0, 255, 100, 0.15);">Your Artist<br>(Echo Nights)</th>
-                                <th>Benchmark<br>(Major Label)</th>
-                                <th>Comp #1<br>(Indie Artist)</th>
-                                <th>Comp #2<br>(Electronic)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Monthly Listeners</strong></td>
-                                <td style="background: rgba(0, 255, 100, 0.05);">45,000</td>
-                                <td>100,000</td>
-                                <td>50,000</td>
-                                <td>40,000</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Growth % (30d)</strong></td>
-                                <td style="background: rgba(0, 255, 100, 0.05);">22% ✓</td>
-                                <td>18%</td>
-                                <td>15%</td>
-                                <td>18%</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Engagement Rate</strong></td>
-                                <td style="background: rgba(0, 255, 100, 0.05);">8% ✓</td>
-                                <td>6%</td>
-                                <td>6%</td>
-                                <td>7%</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Voice Quality</strong></td>
-                                <td style="background: rgba(0, 255, 100, 0.05);">4.0/5</td>
-                                <td>4.2/5</td>
-                                <td>3.8/5</td>
-                                <td>4.1/5</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Production Quality</strong></td>
-                                <td style="background: rgba(0, 255, 100, 0.05);">3.5/5</td>
-                                <td>4.5/5</td>
-                                <td>3.2/5</td>
-                                <td>3.8/5</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Team Quality</strong></td>
-                                <td style="background: rgba(0, 255, 100, 0.05);">4/5 ✓</td>
-                                <td>4.5/5</td>
-                                <td>3.5/5</td>
-                                <td>3.8/5</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Sync Potential</strong></td>
-                                <td style="background: rgba(0, 255, 100, 0.05);">4/5 ✓</td>
-                                <td>4.5/5</td>
-                                <td>3.5/5</td>
-                                <td>3.8/5</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Live Potential</strong></td>
-                                <td style="background: rgba(0, 255, 100, 0.05);">4/5 ✓</td>
-                                <td>4.5/5</td>
-                                <td>3.5/5</td>
-                                <td>3.8/5</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Overall Tier</strong></td>
-                                <td style="background: rgba(0, 255, 100, 0.05); font-weight: 700;">Indie Star</td>
-                                <td>Major Tier</td>
-                                <td>Solid Indie</td>
-                                <td>Emerging</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="notion-note" style="margin-top: 20px;">
-                    <strong>Analysis:</strong> Your artist OUTPERFORMS on growth (+22% vs 18%) and engagement (8% vs 6%), placing them in the top tier for trajectory. Only gap: listeners (10% away from major label standard). With current momentum, will hit 100K+ listeners in 12-18 months.
-                </div>
+            <div class="chart-container">
+                anvas id="compareChart"></canvas>
             </div>
         </div>
     </div>
-
+    
+    <!-- Add Artist Modal -->
+    <div id="addArtistModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeAddArtistModal()">&times;</span>
+            <h2>Add New Artist</h2>
+            <div class="form-group">
+                <label>Artist Name</label>
+                <input type="text" placeholder="Enter artist name" id="artistName">
+            </div>
+            <div class="form-group">
+                <label>Genre</label>
+                <input type="text" placeholder="e.g., Indie Electronic" id="artistGenre">
+            </div>
+            <div class="form-group">
+                <label>Monthly Listeners</label>
+                <input type="number" placeholder="e.g., 45000" id="artistListeners">
+            </div>
+            <div class="form-group">
+                <label>Bio</label>
+                <textarea placeholder="Artist bio..." id="artistBio"></textarea>
+            </div>
+            <button class="btn-primary" onclick="addArtist()">Add Artist</button>
+        </div>
+    </div>
+    
+    <!-- Import Data Modal -->
+    <div id="importModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeImportModal()">&times;</span>
+            <h2>Import Data</h2>
+            <div class="form-group">
+                <label>Select Format</label>
+                <select id="importFormat">
+                    <option>CSV</option>
+                    <option>JSON</option>
+                    <option>Excel</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Upload File</label>
+                <input type="file" id="importFile" accept=".csv,.json,.xlsx">
+            </div>
+            <button class="btn-primary" onclick="importData()">Import</button>
+        </div>
+    </div>
+    
     <script>
         function switchTab(tabName) {
-            // Hide all tabs
             const tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(tab => tab.classList.remove('active'));
-
-            // Remove active from all buttons
             const buttons = document.querySelectorAll('.tab-btn');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
             buttons.forEach(btn => btn.classList.remove('active'));
-
-            // Show selected tab
+            
             document.getElementById(tabName).classList.add('active');
-
-            // Add active to clicked button
             event.target.classList.add('active');
         }
-    </script>
-</body>
-</html>
+        
+        function openAddArtistModal() {
+            document.getElementById('addArtistModal').classList.add('active');
+        }
+        
+        function closeAddArtistModal() {
+            document.getElementById('addArtistModal').classList.remove('active');
+        }
+        
+        function openImportModal() {
+            document.getElementById('importModal').classList.add('active');
+        }
